@@ -44,7 +44,7 @@ fn not_partial_eq_implies_eq() {
     prove(decls(), (), (), goal)
     .assert_err(
     expect![[r#"
-        judgment `prove { goal: {for <ty> if {PartialEq(^ty0_0)} Eq(^ty0_0)}, assumptions: {}, env: Env { variables: [], bias: Soundness }, decls: decls(222, [trait Eq <ty> where {PartialEq(^ty0_0)}, trait PartialEq <ty> ], [], [], [], [], [], {}, {}) }` failed at the following rule(s):
+        judgment `prove { goal: {for <ty> if {PartialEq(^ty0_0)} Eq(^ty0_0)}, assumptions: {}, env: Env { variables: [], bias: Soundness }, decls: decls(222, [trait Eq <ty> where {PartialEq(^ty0_0)}, trait PartialEq <ty> ], [], [], [], [], [], [], {}, {}) }` failed at the following rule(s):
           failed at (src/file.rs:LL:CC) because
             judgment `prove_wc_list { goal: {for <ty> if {PartialEq(^ty0_0)} Eq(^ty0_0)}, assumptions: {}, env: Env { variables: [], bias: Soundness } }` failed at the following rule(s):
               the rule "some" failed at step #0 (src/file.rs:LL:CC) because
@@ -65,7 +65,7 @@ fn universals_not_eq() {
     prove(decls(), (), (), goal)
     .assert_err(
     expect![[r#"
-        judgment `prove { goal: {for <ty, ty> if {Eq(^ty0_0)} PartialEq(^ty0_1)}, assumptions: {}, env: Env { variables: [], bias: Soundness }, decls: decls(222, [trait Eq <ty> where {PartialEq(^ty0_0)}, trait PartialEq <ty> ], [], [], [], [], [], {}, {}) }` failed at the following rule(s):
+        judgment `prove { goal: {for <ty, ty> if {Eq(^ty0_0)} PartialEq(^ty0_1)}, assumptions: {}, env: Env { variables: [], bias: Soundness }, decls: decls(222, [trait Eq <ty> where {PartialEq(^ty0_0)}, trait PartialEq <ty> ], [], [], [], [], [], [], {}, {}) }` failed at the following rule(s):
           failed at (src/file.rs:LL:CC) because
             judgment `prove_wc_list { goal: {for <ty, ty> if {Eq(^ty0_0)} PartialEq(^ty0_1)}, assumptions: {}, env: Env { variables: [], bias: Soundness } }` failed at the following rule(s):
               the rule "some" failed at step #0 (src/file.rs:LL:CC) because
@@ -79,7 +79,7 @@ fn universals_not_eq() {
                           the rule "trait implied bound" failed at step #4 (src/file.rs:LL:CC) because
                             judgment `prove_after { constraints: Constraints { env: Env { variables: [!ty_1, !ty_2, ?ty_3], bias: Soundness }, known_true: true, substitution: {?ty_3 => !ty_2} }, goal: {Eq(?ty_3)}, assumptions: {Eq(!ty_1)} }` failed at the following rule(s):
                               the rule "prove_after" failed at step #1 (src/file.rs:LL:CC) because
-                                judgment `prove { goal: {Eq(!ty_1)}, assumptions: {Eq(!ty_0)}, env: Env { variables: [!ty_0, !ty_1], bias: Soundness }, decls: decls(222, [trait Eq <ty> where {PartialEq(^ty0_0)}, trait PartialEq <ty> ], [], [], [], [], [], {}, {}) }` failed at the following rule(s):
+                                judgment `prove { goal: {Eq(!ty_1)}, assumptions: {Eq(!ty_0)}, env: Env { variables: [!ty_0, !ty_1], bias: Soundness }, decls: decls(222, [trait Eq <ty> where {PartialEq(^ty0_0)}, trait PartialEq <ty> ], [], [], [], [], [], [], {}, {}) }` failed at the following rule(s):
                                   failed at (src/file.rs:LL:CC) because
                                     judgment `prove_wc_list { goal: {Eq(!ty_1)}, assumptions: {Eq(!ty_0)}, env: Env { variables: [!ty_0, !ty_1], bias: Soundness } }` failed at the following rule(s):
                                       the rule "some" failed at step #0 (src/file.rs:LL:CC) because
@@ -87,7 +87,7 @@ fn universals_not_eq() {
                                           the rule "assumption - predicate" failed at step #1 (src/file.rs:LL:CC) because
                                             judgment `prove_via { goal: Eq(!ty_1), via: Eq(!ty_0), assumptions: {Eq(!ty_0)}, env: Env { variables: [!ty_0, !ty_1], bias: Soundness } }` failed at the following rule(s):
                                               the rule "predicate-congruence-axiom" failed at step #3 (src/file.rs:LL:CC) because
-                                                judgment `prove { goal: {!ty_0 = !ty_1}, assumptions: {Eq(!ty_0)}, env: Env { variables: [!ty_0, !ty_1], bias: Soundness }, decls: decls(222, [trait Eq <ty> where {PartialEq(^ty0_0)}, trait PartialEq <ty> ], [], [], [], [], [], {}, {}) }` failed at the following rule(s):
+                                                judgment `prove { goal: {!ty_0 = !ty_1}, assumptions: {Eq(!ty_0)}, env: Env { variables: [!ty_0, !ty_1], bias: Soundness }, decls: decls(222, [trait Eq <ty> where {PartialEq(^ty0_0)}, trait PartialEq <ty> ], [], [], [], [], [], [], {}, {}) }` failed at the following rule(s):
                                                   failed at (src/file.rs:LL:CC) because
                                                     judgment `prove_wc_list { goal: {!ty_0 = !ty_1}, assumptions: {Eq(!ty_0)}, env: Env { variables: [!ty_0, !ty_1], bias: Soundness } }` failed at the following rule(s):
                                                       the rule "some" failed at step #0 (src/file.rs:LL:CC) because

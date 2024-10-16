@@ -18,7 +18,7 @@ fn nonsense_rigid_const_bound() {
 
             Caused by:
                 0: prove_where_clauses_well_formed([type_of_const value(0, bool) is u32])
-                1: judgment `prove { goal: {u32 = bool, @ wf(u32), @ wf(const value(0, bool))}, assumptions: {@ ConstHasType(value(0, bool) , u32)}, env: Env { variables: [], bias: Soundness }, decls: decls(222, [trait Foo <ty> where {@ ConstHasType(value(0, bool) , u32)}], [], [], [], [], [], {Foo}, {}) }` failed at the following rule(s):
+                1: judgment `prove { goal: {u32 = bool, @ wf(u32), @ wf(const value(0, bool))}, assumptions: {@ ConstHasType(value(0, bool) , u32)}, env: Env { variables: [], bias: Soundness }, decls: decls(222, [trait Foo <ty> where {@ ConstHasType(value(0, bool) , u32)}], [], [], [], [], [], [], {Foo}, {}) }` failed at the following rule(s):
                      failed at (src/file.rs:LL:CC) because
                        judgment `prove_wc_list { goal: {u32 = bool, @ wf(u32), @ wf(const value(0, bool))}, assumptions: {@ ConstHasType(value(0, bool) , u32)}, env: Env { variables: [], bias: Soundness } }` failed at the following rule(s):
                          the rule "some" failed at step #0 (src/file.rs:LL:CC) because
@@ -76,7 +76,7 @@ fn mismatch() {
             check_trait_impl(impl Foo <const value(42, u32)> for u32 { })
 
             Caused by:
-                judgment `prove { goal: {Foo(u32, const value(42, u32))}, assumptions: {}, env: Env { variables: [], bias: Soundness }, decls: decls(222, [trait Foo <ty, const> where {@ ConstHasType(^const0_1 , bool)}], [impl Foo(u32, const value(42, u32))], [], [], [], [], {Foo}, {}) }` failed at the following rule(s):
+                judgment `prove { goal: {Foo(u32, const value(42, u32))}, assumptions: {}, env: Env { variables: [], bias: Soundness }, decls: decls(222, [trait Foo <ty, const> where {@ ConstHasType(^const0_1 , bool)}], [impl Foo(u32, const value(42, u32))], [], [], [], [], [], {Foo}, {}) }` failed at the following rule(s):
                   failed at (src/file.rs:LL:CC) because
                     judgment `prove_wc_list { goal: {Foo(u32, const value(42, u32))}, assumptions: {}, env: Env { variables: [], bias: Soundness } }` failed at the following rule(s):
                       the rule "some" failed at step #0 (src/file.rs:LL:CC) because
@@ -135,7 +135,7 @@ fn generic_mismatch() {
             check_trait_impl(impl <const> Foo <const ^const0_0> for u32 where type_of_const ^const0_0 is u32 { })
 
             Caused by:
-                judgment `prove { goal: {Foo(u32, const !const_0)}, assumptions: {@ ConstHasType(!const_0 , u32)}, env: Env { variables: [!const_0], bias: Soundness }, decls: decls(222, [trait Foo <ty, const> where {@ ConstHasType(^const0_1 , bool)}], [impl <const> Foo(u32, const ^const0_0) where {@ ConstHasType(^const0_0 , u32)}], [], [], [], [], {Foo}, {}) }` failed at the following rule(s):
+                judgment `prove { goal: {Foo(u32, const !const_0)}, assumptions: {@ ConstHasType(!const_0 , u32)}, env: Env { variables: [!const_0], bias: Soundness }, decls: decls(222, [trait Foo <ty, const> where {@ ConstHasType(^const0_1 , bool)}], [impl <const> Foo(u32, const ^const0_0) where {@ ConstHasType(^const0_0 , u32)}], [], [], [], [], [], {Foo}, {}) }` failed at the following rule(s):
                   failed at (src/file.rs:LL:CC) because
                     judgment `prove_wc_list { goal: {Foo(u32, const !const_0)}, assumptions: {@ ConstHasType(!const_0 , u32)}, env: Env { variables: [!const_0], bias: Soundness } }` failed at the following rule(s):
                       the rule "some" failed at step #0 (src/file.rs:LL:CC) because
@@ -143,7 +143,7 @@ fn generic_mismatch() {
                           the rule "positive impl" failed at step #7 (src/file.rs:LL:CC) because
                             judgment `prove_after { constraints: Constraints { env: Env { variables: [!const_0, ?const_1], bias: Soundness }, known_true: true, substitution: {?const_1 => const !const_0} }, goal: {@ ConstHasType(?const_1 , bool)}, assumptions: {@ ConstHasType(!const_0 , u32)} }` failed at the following rule(s):
                               the rule "prove_after" failed at step #1 (src/file.rs:LL:CC) because
-                                judgment `prove { goal: {@ ConstHasType(!const_0 , bool)}, assumptions: {@ ConstHasType(!const_0 , u32)}, env: Env { variables: [!const_0], bias: Soundness }, decls: decls(222, [trait Foo <ty, const> where {@ ConstHasType(^const0_1 , bool)}], [impl <const> Foo(u32, const ^const0_0) where {@ ConstHasType(^const0_0 , u32)}], [], [], [], [], {Foo}, {}) }` failed at the following rule(s):
+                                judgment `prove { goal: {@ ConstHasType(!const_0 , bool)}, assumptions: {@ ConstHasType(!const_0 , u32)}, env: Env { variables: [!const_0], bias: Soundness }, decls: decls(222, [trait Foo <ty, const> where {@ ConstHasType(^const0_1 , bool)}], [impl <const> Foo(u32, const ^const0_0) where {@ ConstHasType(^const0_0 , u32)}], [], [], [], [], [], {Foo}, {}) }` failed at the following rule(s):
                                   failed at (src/file.rs:LL:CC) because
                                     judgment `prove_wc_list { goal: {@ ConstHasType(!const_0 , bool)}, assumptions: {@ ConstHasType(!const_0 , u32)}, env: Env { variables: [!const_0], bias: Soundness } }` failed at the following rule(s):
                                       the rule "some" failed at step #0 (src/file.rs:LL:CC) because
